@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">TestTaskEffectiveMobile</string>
+    <string name="conditions_of_program_loyality_text"><u>условия программы лояльности</u></string>
+    <string name="logining_text">Вход</string>
+    <string name="login_text">Войти</string>
+    <string name="surname_text">Фамилия</string>
+    <string name="name_text">Имя</string>
+    <string name="phone_number_text">Номер телефона</string>
+    <string name="pressing_button_text">Нажимая кнопку “Войти”, Вы принимаете</string>
+    <string name="home_text">Главная</string>
+    <string name="catalog_text">Каталог</string>
+    <string name="bag_text">Корзина</string>
+    <string name="discount_text">Акции</string>
+    <string name="profile_text">Профиль</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="sort_by_increasing">По возрастанию</string>
+    <string name="filter_text">Фильтры</string>
+</resources>

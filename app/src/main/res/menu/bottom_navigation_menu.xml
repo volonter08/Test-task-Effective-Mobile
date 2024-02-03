@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@id/home"
+        android:icon="@drawable/type_home__state_default"
+        android:title="@string/home_text"/>
+    <item
+        android:id="@id/catalog"
+        android:title="@string/catalog_text"
+        android:icon="@drawable/type_catalog__state_default"/>
+    <item
+        android:id="@id/bag"
+        android:title="@string/bag_text"
+        android:icon="@drawable/type_bag__state_default"/>
+    <item
+        android:id="@id/discount"
+        android:title="@string/discount_text"
+        android:icon="@drawable/type_discount__state_default"/>
+    <item
+        android:id="@id/profile"
+        android:title="@string/profile_text"
+        android:icon="@drawable/type_account__state_default"/>
+</menu>
