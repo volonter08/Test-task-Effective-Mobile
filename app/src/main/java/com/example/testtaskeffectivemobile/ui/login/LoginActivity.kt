@@ -45,7 +45,6 @@ class LoginActivity : AppCompatActivity() {
     lateinit var phoneNumberCloseButton: MaterialButton
     lateinit var loginButton: Button
     private var isValidLoginData: Boolean by Delegates.observable(false) { _, oldValue, newValue ->
-        println(newValue)
         loginButton.isEnabled = newValue
     }
     private var isValidName: Boolean by Delegates.observable(false) { _, oldValue, newValue ->

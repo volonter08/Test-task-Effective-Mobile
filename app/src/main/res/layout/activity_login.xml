@@ -9,11 +9,11 @@
     tools:context=".ui.login.LoginActivity">
 
     <TextView
-        style="@style/Widget.App.TextView.Title1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:text="@string/logining_text"
+        android:textAppearance="@style/TextAppearance.App.Title1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -146,18 +146,17 @@
     </LinearLayout>
 
     <TextView
-        style="@style/Widget.App.TextView.Caption1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@id/conditions_of_loyalty_program_text_view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        android:textAppearance="@style/TextAppearance.App.Caption1"
         android:textColor="@color/grey"
         android:text="@string/pressing_button_text"
         />
     <TextView
-        style="@style/Widget.App.TextView.Caption1"
         android:id="@+id/conditions_of_loyalty_program_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -165,6 +164,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
+        android:textAppearance="@style/TextAppearance.App.Caption1"
         android:clickable="false"
         android:text="@string/conditions_of_program_loyality_text"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,60 +1,92 @@
 package com.example.testtaskeffectivemobile.fragment
 
+
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.PopupMenu
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import com.example.testtaskeffectivemobile.R
+import com.example.testtaskeffectivemobile.adapter.ProductAdapter
+import com.example.testtaskeffectivemobile.databinding.FragmentCatalogBinding
+import com.example.testtaskeffectivemobile.viewModel.ProductViewModel
+import com.google.android.material.chip.Chip
+import com.google.android.material.chip.ChipGroup
+import dagger.hilt.android.AndroidEntryPoint
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CatalogFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
+@AndroidEntryPoint
 class CatalogFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
-
+    private lateinit var binding: FragmentCatalogBinding
+    private lateinit var productAdapter: ProductAdapter
+    private val productViewModel: ProductViewModel by viewModels()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_catalog, container, false)
+    ): View {
+        binding = FragmentCatalogBinding.inflate(inflater, container, false)
+        productAdapter = ProductAdapter()
+        binding.apply {
+            productRecycleView.adapter = productAdapter
+            sortButton.setOnClickListener {view->
+                PopupMenu(requireContext(),view,Gravity.BOTTOM).apply {
+                    inflate(R.menu.sort_by)
+                    setOnMenuItemClickListener {
+                        (view as Button).text = it.title
+                        when(it.itemId){
+                            R.id.sort_by_populate-> productAdapter.sortProductByPopulate()
+                            R.id.sort_by_increasing_price->productAdapter.sortProductByIncreasingPrice()
+                            R.id.sort_by_reducing_price->productAdapter.sortProductByReducingPrice()
+                        }
+                     return@setOnMenuItemClickListener true
+                    }
+                }.show()
+            }
+        }
+        productViewModel.data.observe(viewLifecycleOwner) {
+            productAdapter.submitList(it)
+            it.flatMap { product ->
+                product.tags
+            }.toSet().forEach {tag->
+                addChip(tag, binding.chipGroup)
+            }
+        }
+        productViewModel.selectedTags.observe(viewLifecycleOwner){
+            productAdapter.run {
+                submitList(productViewModel.data.value?.filter { product->
+                    product.tags.containsAll(it)
+                })
+            }
+        }
+        return binding.root
+    }
+    private fun addChip(pItem: String, pChipGroup: ChipGroup) {
+        val lChip = layoutInflater.inflate(
+            R.layout.chip,
+            pChipGroup,
+            false
+        ) as Chip
+        lChip.text = pItem
+        lChip.setOnCheckedChangeListener { _, isChecked ->
+            lChip.setTextAppearance(
+                if (isChecked) R.style.TextAppearance_App_Title4 else R.style.TextAppearance_App_ButtonText2
+            )
+            lChip.isCheckable = !isChecked
+            lChip.setTextColor(requireContext().getColor(if (isChecked) R.color.white else R.color.grey))
+            lChip.isCloseIconVisible = isChecked
+            if (isChecked)
+                productViewModel.selectTag(pItem)
+        }
+        lChip.setOnCloseIconClickListener {
+            productAdapter.submitList(emptyList())
+            productViewModel.unselectTag(pItem)
+            lChip.isCheckable = true
+            lChip.isChecked = false
+        }
+        pChipGroup.addView(lChip)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CatalogFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CatalogFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
-    }
 }

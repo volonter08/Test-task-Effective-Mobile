@@ -84,4 +84,5 @@ dependencies {
     implementation "androidx.navigation:navigation-dynamic-features-fragment:$nav_version"
     //MaskedEditText
     implementation 'io.github.vicmikhailau:MaskedEditText:5.0.1'
+    //ViewPager2
 }

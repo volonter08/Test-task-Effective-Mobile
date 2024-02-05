@@ -35,6 +35,7 @@ class BagFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+        println("ddf")
         return inflater.inflate(R.layout.fragment_bag, container, false)
     }
 

@@ -16,4 +16,10 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="sort_by_increasing">По возрастанию</string>
     <string name="filter_text">Фильтры</string>
+    <string name= "price_format_text" formatted="true">%s %s</string>
+    <string name= "discount_format_text" formatted="true">-%d%%</string>
+    <string name="feedback_format_text" formatted="true">(%d)</string>
+    <string name="by_populate">По популярности</string>
+    <string name="by_increasing_price">По увеличению цены</string>
+    <string name="by_reducing_price">По уменьшению цены</string>
 </resources>

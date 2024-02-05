@@ -1,35 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.google.android.material.card.MaterialCardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    app:strokeColor="@color/light_grey_background"
-    app:cardCornerRadius="8dp"
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="14dp">
-<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <androidx.viewpager.widget.ViewPager
-        android:layout_width=""
-        android:layout_height=""
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="8dp"
+    app:cardCornerRadius="8dp"
+    app:strokeColor="@color/light_grey_background"
+    >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="6dp">
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/view_pager"
+            android:layout_width="match_parent"
+            android:layout_height="168dp"
+            app:layout_constraintTop_toTopOf="parent" />
+        <LinearLayout
+            android:id="@+id/small_paginatation_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="@id/view_pager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            >
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/view_pager">
+
+            <TextView
+                android:id="@+id/old_price_text_view"
+                android:textAppearance="@style/TextAppearance.App.ElementText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/old_price_background"
+                android:textColor="@color/grey"
+                tools:text="FDFDF" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/price_text_view"
+                    android:textAppearance="@style/TextAppearance.App.Title2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    tools:text="549 ₽" />
+
+                <TextView
+                    android:id="@+id/discrount_text_view"
+                    android:textAppearance="@style/TextAppearance.App.ElementText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/type_discount__state_default"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    tools:text="-20%" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/title_text_view"
+                android:textAppearance="@style/TextAppearance.App.Title3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                tools:text="A`PIEU" />
+
+            <TextView
+                android:id="@+id/subtitle_text_view"
+                android:textAppearance="@style/TextAppearance.App.Caption1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/dark_grey"
+                tools:text="Лосьон для тела`ESFOLIO` COENZYME Q 10 Увлажняющий 500 мл" />
+
+            <LinearLayout
+                android:id="@+id/feedback_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="2dp"
+                    android:padding="0dp"
+                    android:src="@drawable/type_reviews__state_default" />
+
+                <TextView
+                    android:id="@+id/rating_text_view"
+                    android:textAppearance="@style/TextAppearance.App.ElementText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginEnd="2dp"
+                    android:textColor="@color/orange"
+                    tools:text="4.5" />
+
+                <TextView
+                    android:id="@+id/feedback_text_view"
+                    android:textAppearance="@style/TextAppearance.App.ElementText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/grey"
+                    tools:text="(51)" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/favorite_button"
+            style="@style/Widget.App.IconButton.LikeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:backgroundTint="@null"
+            app:icon="@drawable/like_button_background"
+
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <com.google.android.material.button.MaterialButton
+        android:id="@+id/add_button"
         style="@style/Widget.App.IconButton.AddButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_gravity="bottom|end"
+        app:icon="@drawable/type_plus__state_default"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:icon="@drawable/type_plus__state_default" />
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.App.IconButton.LikeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-
-        app:backgroundTint="@null"
-        app:icon="@drawable/like_button_background" />
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        />
+    </LinearLayout>
 </com.google.android.material.card.MaterialCardView>

@@ -12,6 +12,7 @@
         <item name="iconSize">@null</item>
         <item name="android:visibility">gone</item>
     </style>
+
     <style name="Widget.App.IconButton.AddButton" parent="Widget.Material3.Button.IconButton">
         <item name="backgroundTint">@null</item>
         <item name="android:background">@drawable/add_button_background</item>
@@ -24,6 +25,7 @@
         <item name="iconTint">@color/white</item>
         <item name="iconSize">@null</item>
     </style>
+
     <style name="Widget.App.IconButton.LikeButton" parent="Widget.Material3.Button.IconButton">
         <item name="backgroundTint">@null</item>
         <item name="android:background">@android:color/transparent</item>
@@ -36,6 +38,7 @@
         <item name="iconTint">@null</item>
         <item name="iconSize">@null</item>
     </style>
+
     <style name="Widget.App.TextButton" parent="Widget.Material3.Button.TextButton">
         <item name="android:textAppearance">@style/TextAppearance.App.Title4</item>
         <item name="android:textColor">@null</item>
@@ -50,7 +53,8 @@
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
     </style>
-    <style name="Widget.App.Button.TagButton" >
+
+    <style name="Widget.App.Button.TagButton">
         <item name="android:textAppearance">@style/TextAppearance.App.Title4</item>
         <item name="android:textColor">@color/tag_button_text_color</item>
         <item name="backgroundTint">@color/tag_button_background_color</item>
@@ -66,81 +70,88 @@
         <item name="android:insetTop">0dp</item>
         <item name="android:insetBottom">0dp</item>
     </style>
+
     <style name="Widget.App.Button" parent="Widget.Material3.Button">
         <item name="backgroundTint">@null</item>
     </style>
 
-    <style name="TextAppearance.App.Caption1" parent="TextAppearance.AppCompat">
-        <item name="font">@font/sf_pro_display_regular
-        </item>
-        <item name="android:textSize">10sp</item>
-    </style>
-    <style name="TextAppearance.App.Title4" parent="TextAppearance.AppCompat">
-        <item name="font">@font/sf_pro_display_regular
-        </item>
-        <item name="android:textSize">14sp</item>
-        <item name="android:textColor">@color/dark_grey</item>
-    </style>
-    <style name="Widget.App.TextView.LargeTitle1" parent="Widget.MaterialComponents.TextView">
+    <style name="TextAppearance.App.LargeTitle1" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
         <item name="android:textFontWeight">500</item>
         <item name="android:textSize">20sp</item>
     </style>
 
-    <style name="Widget.App.TextView.Title1" parent="Widget.MaterialComponents.TextView">
+    <style name="TextAppearance.App.Title1" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
         <item name="android:textFontWeight">500</item>
         <item name="android:textSize">16sp</item>
     </style>
 
-    <style name="Widget.App.TextView.Title2" parent="Widget.MaterialComponents.TextView">
+    <style name="TextAppearance.App.Title2" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
         <item name="android:textFontWeight">500</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Widget.App.TextView.Title3" parent="Widget.MaterialComponents.TextView">
+    <style name="TextAppearance.App.Title3" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
         <item name="android:textFontWeight">500</item>
         <item name="android:textSize">12sp</item>
     </style>
 
-    <style name="Widget.App.TextView.Title4" parent="Widget.MaterialComponents.TextView">
+    <style name="TextAppearance.App.Title4" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
         <item name="android:textFontWeight">400</item>
         <item name="android:textSize">14sp</item>
     </style>
+
+    <style name="TextAppearance.App.Caption1" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">10sp</item>
+    </style>
+
+    <style name="TextAppearance.App.ButtonText2" parent="TextAppearance.AppCompat">
+        <item name="fontFamily">@font/sf_pro_display</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
 
     <style name="Widget.App.TextView.Text1" parent="Widget.MaterialComponents.TextView">
         <item name="android:textFontWeight">400</item>
         <item name="android:textSize">12sp</item>
     </style>
-
-    <style name="Widget.App.TextView.Caption1" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textFontWeight">400</item>
-        <item name="android:textSize">10sp</item>
+    <style name="TextAppearance.App.ButtonText1" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="TextAppearance.App.ElementText" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">9sp</item>
+    </style>
+
+    <style name="TextAppearance.App.PriceText" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
+        <item name="android:textFontWeight">500</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+    <style name="TextAppearance.App.PlaceholderText" parent="android:TextAppearance">
+        <item name="fontFamily">@font/sf_pro_display</item>
+        <item name="android:textFontWeight">400</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    
     <style name="Widget.App.Button.Big">
         <item name="android:textColor">@color/white</item>
         <item name="android:textFontWeight">500</item>
         <item name="android:textSize">14sp</item>
     </style>
 
-    <style name="Widget.App.TextView.ButtonText1" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textFontWeight">500</item>
-        <item name="android:textSize">12sp</item>
-    </style>
 
-    <style name="Widget.App.TextView.ElementText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textFontWeight">400</item>
-        <item name="android:textSize">9sp</item>
-    </style>
-
-    <style name="Widget.App.TextView.PriceText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textFontWeight">500</item>
-        <item name="android:textSize">24sp</item>
-    </style>
-
-    <style name="Widget.App.TextView.PlaceholderText" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textFontWeight">400</item>
-        <item name="android:textSize">16sp</item>
-    </style>
 
     <style name="Widget.App.EditText" parent="Widget.AppCompat.EditText">
         <item name="android:textFontWeight">400</item>
@@ -149,5 +160,17 @@
 
     <style name="ActionIndicator" parent="Widget.Material3.BottomNavigationView.ActiveIndicator">
         <item name="android:color">@android:color/transparent</item>
+    </style>
+
+    <style name="Widget.App.Chip" parent="Widget.Material3.Chip.Input">
+        <item name="chipBackgroundColor">@color/tag_button_background_color</item>
+        <item name="shapeAppearance">@style/ShapeAppearance.Material3.Corner.Full</item>
+        <item name="checkedIcon">@null</item>
+        <item name="chipStrokeColor">@android:color/transparent</item>>
+        <item name="closeIcon">@drawable/type_small_close__state_default</item>
+        <item name="closeIconVisible">false</item>
+        <item name="closeIconTint">@color/white</item>
+        <item name="android:textAppearance">@style/TextAppearance.App.ButtonText2</item>
+        <item name="android:textColor">@color/grey</item>
     </style>
 </resources>
