@@ -5,5 +5,7 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Profile(
-
-    @PrimaryKey val name: String = "", val surname: String = "", val phoneNumber: String = "")
+    @PrimaryKey val name: String = "",
+    val surname: String = "",
+    val phoneNumber: String = ""
+)

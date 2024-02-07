@@ -2,14 +2,7 @@ package com.example.testtaskeffectivemobile.data
 
 import androidx.lifecycle.map
 import com.example.testtaskeffectivemobile.dao.ProfileDao
-import com.example.testtaskeffectivemobile.data.model.LoggedInUser
 import com.example.testtaskeffectivemobile.entity.Profile
-import kotlinx.coroutines.MainScope
-import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
-import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.mapLatest
-import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 import javax.inject.Singleton
 

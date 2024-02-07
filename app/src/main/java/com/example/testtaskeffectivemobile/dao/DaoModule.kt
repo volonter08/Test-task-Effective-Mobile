@@ -14,4 +14,8 @@ object DaoModule {
     @Singleton
     fun provideProfileDao(appDb: AppDb): ProfileDao =
         appDb.profileDao()
+    @Provides
+    @Singleton
+    fun provideProductDao(appDb: AppDb): ProductDao =
+        appDb.productDao()
 }

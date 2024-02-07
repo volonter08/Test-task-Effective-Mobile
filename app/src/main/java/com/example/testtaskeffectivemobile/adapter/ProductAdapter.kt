@@ -6,12 +6,13 @@ import androidx.recyclerview.widget.ListAdapter
 import com.example.testtaskeffectivemobile.data.model.Product
 import com.example.testtaskeffectivemobile.databinding.ItemProductBinding
 import com.example.testtaskeffectivemobile.diffUtil.ProductDiffUtilCallback
+import com.example.testtaskeffectivemobile.listener.OnButtonClickListener
 import com.example.testtaskeffectivemobile.viewHolder.ProductViewHolder
 
-class ProductAdapter : ListAdapter<Product, ProductViewHolder>(ProductDiffUtilCallback()) {
+class ProductAdapter(private val listener:OnButtonClickListener) : ListAdapter<Product, ProductViewHolder>(ProductDiffUtilCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProductViewHolder {
         val binding = ItemProductBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return ProductViewHolder(parent.context, binding)
+        return ProductViewHolder(parent.context, binding,listener)
     }
 
     override fun onBindViewHolder(holder: ProductViewHolder, position: Int) {

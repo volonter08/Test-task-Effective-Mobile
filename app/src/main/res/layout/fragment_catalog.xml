@@ -7,7 +7,6 @@
     android:paddingStart="16dp"
     android:paddingTop="16dp"
     tools:context=".fragment.CatalogFragment">
-
     <TextView
         android:id="@+id/catalog_text_view"
         android:textAppearance="@style/TextAppearance.App.Title1"
@@ -28,13 +27,20 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/catalog_text_view">
-
+        <ImageView
+            android:id="@+id/sort_image_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/type_sort_by__state_default"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            />
         <com.google.android.material.button.MaterialButton
             android:id="@+id/sort_button"
             style="@style/Widget.App.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
+            android:layout_toEndOf="@id/sort_image_view"
             android:layout_centerVertical="true"
             android:text="@string/sort_by_increasing"
             app:icon="@drawable/type_down_arrow__state_default"

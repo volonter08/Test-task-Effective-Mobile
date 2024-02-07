@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testtaskeffectivemobile.databinding.ItemPageBinding
 
-class ViewPagerAdapter(private val listLinks: List<String>) : RecyclerView.Adapter<PagerVH>() {
+class ViewPagerAdapter(private val listLinks: List<String>, private val action: ()->Unit) : RecyclerView.Adapter<PagerVH>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PagerVH {
         val binding = ItemPageBinding.inflate(
@@ -15,7 +15,8 @@ class ViewPagerAdapter(private val listLinks: List<String>) : RecyclerView.Adapt
         )
         return PagerVH(
             parent.context,
-            binding
+            binding,
+            action
         )
     }
 
@@ -26,9 +27,14 @@ class ViewPagerAdapter(private val listLinks: List<String>) : RecyclerView.Adapt
     }
 }
 
-class PagerVH(val context: Context, private val binding: ItemPageBinding) :
+class PagerVH(val context: Context, private val binding: ItemPageBinding,val action: ()->Unit) :
     RecyclerView.ViewHolder(binding.root) {
     fun bind(link: String) {
-        binding.root.setImageBitmap(BitmapFactory.decodeStream(context.assets.open(link)))
+        binding.root.apply {
+            setImageBitmap(BitmapFactory.decodeStream(context.assets.open(link)))
+            setOnClickListener {
+                action()
+            }
+        }
     }
 }

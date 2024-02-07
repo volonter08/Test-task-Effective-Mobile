@@ -9,5 +9,14 @@
         android:id="@+id/catalogFragment"
         android:name="com.example.testtaskeffectivemobile.fragment.CatalogFragment"
         android:label="fragment_catalog"
-        tools:layout="@layout/fragment_catalog" />
+        tools:layout="@layout/fragment_catalog" >
+        <action
+            android:id="@+id/action_catalogFragment_to_productPageFragment"
+            app:destination="@id/productPageFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/productPageFragment"
+        android:name="com.example.testtaskeffectivemobile.fragment.ProductPageFragment"
+        android:label="fragment_product_page"
+        tools:layout="@layout/fragment_product_page" />
 </navigation>

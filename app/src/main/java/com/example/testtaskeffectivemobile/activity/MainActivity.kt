@@ -1,10 +1,10 @@
-package com.example.testtaskeffectivemobile
+package com.example.testtaskeffectivemobile.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
-import com.example.testtaskeffectivemobile.databinding.ActivityLoginBinding
+import com.example.testtaskeffectivemobile.R
 import com.example.testtaskeffectivemobile.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

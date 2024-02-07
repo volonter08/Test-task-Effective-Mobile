@@ -1,7 +1,6 @@
 package com.example.testtaskeffectivemobile.viewHolder
 
 import android.content.Context
-import android.util.JsonReader
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.testtaskeffectivemobile.R
@@ -9,12 +8,17 @@ import com.example.testtaskeffectivemobile.adapter.ViewPagerAdapter
 import com.example.testtaskeffectivemobile.data.model.ImageLinkObject
 import com.example.testtaskeffectivemobile.data.model.Product
 import com.example.testtaskeffectivemobile.databinding.ItemProductBinding
+import com.example.testtaskeffectivemobile.listener.OnButtonClickListener
+import com.google.android.material.tabs.TabLayout
+import com.google.android.material.tabs.TabLayoutMediator
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import okio.use
-import org.json.JSONObject
 
-class ProductViewHolder(val context: Context, val binding: ItemProductBinding) :
+class ProductViewHolder(
+    val context: Context,
+    private val binding: ItemProductBinding,
+    private val listener: OnButtonClickListener
+) :
     ViewHolder(binding.root) {
     fun bind(product: Product) {
         binding.apply {
@@ -30,6 +34,12 @@ class ProductViewHolder(val context: Context, val binding: ItemProductBinding) :
                 product.price.priceWithDiscount,
                 product.price.unit
             )
+            favoriteButton.apply {
+                isChecked = product.isFavorite
+                setOnClickListener {
+                    listener.onFavoriteAddButtonClick(product)
+                }
+            }
             discrountTextView.text =
                 context.getString(R.string.discount_format_text, product.price.discount)
             if (product.feedback != null) {
@@ -42,12 +52,24 @@ class ProductViewHolder(val context: Context, val binding: ItemProductBinding) :
             val listLinks = Gson().fromJson<List<ImageLinkObject>>(
                 context.resources.openRawResource(R.raw.link_id_and_images).reader(),
                 TypeToken.getParameterized(List::class.java, ImageLinkObject::class.java).type
-            ).filter{
-                it.id==product.id
+            ).filter {
+                it.id == product.id
             }.flatMap {
                 it.links
             }
-            viewPager.adapter = ViewPagerAdapter(listLinks)
+            viewPager.apply {
+                adapter = ViewPagerAdapter(listLinks) {
+                    listener.onProductClick(product, listLinks)
+                }
+            }
+            root.setOnClickListener {
+                listener.onProductClick(product, listLinks)
+            }
+
+
+            TabLayoutMediator(smallPaginatationLayout,viewPager){tab,position->
+                tab.icon = context.getDrawable(R.drawable.small_pagination_icon)
+            }.attach()
         }
     }
 }

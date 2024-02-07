@@ -2,13 +2,10 @@ package com.example.testtaskeffectivemobile.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import com.example.testtaskeffectivemobile.entity.Profile
-import kotlinx.coroutines.flow.Flow
-import javax.inject.Singleton
 
 @Dao
 interface ProfileDao {
@@ -16,8 +13,6 @@ interface ProfileDao {
     fun getProfileLiveData(): LiveData<List<Profile>>
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun setProfileData(profile: Profile)
-    @Query("SELECT * FROM Profile LIMIT 1")
-    suspend fun getProfile(): Profile?
     @Query("DELETE FROM Profile")
     suspend fun deleteProfileData()
 }

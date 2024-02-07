@@ -1,6 +1,5 @@
 package com.example.testtaskeffectivemobile.diffUtil
 
-import android.widget.ListAdapter
 import androidx.recyclerview.widget.DiffUtil
 import com.example.testtaskeffectivemobile.data.model.Product
 

@@ -9,5 +9,23 @@
         android:id="@+id/profileFragment"
         android:name="com.example.testtaskeffectivemobile.fragment.ProfileFragment"
         android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
+        tools:layout="@layout/fragment_profile" >
+        <action
+            android:id="@+id/action_profileFragment_to_favoriteProductsFragment"
+            app:destination="@id/favoriteProductsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/favoriteProductsFragment"
+        android:name="com.example.testtaskeffectivemobile.fragment.FavoriteProductsFragment"
+        android:label="fragment_favorite_products"
+        tools:layout="@layout/fragment_favorite_products" >
+        <action
+            android:id="@+id/action_favoriteProductsFragment_to_productPageFragment2"
+            app:destination="@id/productPageFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/productPageFragment2"
+        android:name="com.example.testtaskeffectivemobile.fragment.ProductPageFragment"
+        android:label="fragment_product_page"
+        tools:layout="@layout/fragment_product_page" />
 </navigation>

@@ -8,6 +8,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.util.concurrent.TimeUnit
 import javax.inject.Singleton
 
 @Module
@@ -22,7 +23,7 @@ object ApiModule {
                 OkHttpClient.Builder().addInterceptor( HttpLoggingInterceptor()
                     .apply {
                         level = HttpLoggingInterceptor.Level.BODY
-                    }).build()
+                    }).connectTimeout(5,TimeUnit.SECONDS).readTimeout(5,TimeUnit.SECONDS).build()
             ).build().create(ProductApiService::class.java)
     }
 }
