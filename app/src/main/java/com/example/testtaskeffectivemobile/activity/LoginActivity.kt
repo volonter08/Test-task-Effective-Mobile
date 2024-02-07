@@ -35,13 +35,11 @@ class LoginActivity : AppCompatActivity() {
         loginButton.isEnabled = newValue
     }
     private var isValidName: Boolean by Delegates.observable(false) { _, oldValue, newValue ->
-        if (oldValue != newValue)
-            binding.nameLinearLayout.setBackgroundResource(if (newValue) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
+            binding.nameLinearLayout.setBackgroundResource(if (newValue || binding.name.text.isEmpty()) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
         isValidLoginData = newValue && isValidName && isValidPhoneNumber
     }
     private var isValidSurname: Boolean by Delegates.observable(false) { _, oldValue, newValue ->
-        if (oldValue != newValue)
-            binding.surnameLinearLayout.setBackgroundResource(if (newValue) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
+            binding.surnameLinearLayout.setBackgroundResource(if (newValue || binding.name.text.isEmpty()) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
         isValidLoginData = newValue && isValidPhoneNumber && isValidSurname
     }
     private var isValidPhoneNumber: Boolean by Delegates.observable(false) { _, _, newValue ->
@@ -81,7 +79,6 @@ class LoginActivity : AppCompatActivity() {
         nameEditText.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
             }
-
             override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
                 nameCloseButton.isVisible = s?.isNotBlank() ?: false
             }
@@ -95,7 +92,6 @@ class LoginActivity : AppCompatActivity() {
                 }
                 isValidName = true
             }
-
         })
 
         surnameEditText.addTextChangedListener(object : TextWatcher {
@@ -113,6 +109,7 @@ class LoginActivity : AppCompatActivity() {
                         return
                     }
                 }
+                println(s.toString())
                 isValidSurname = true
             }
 
