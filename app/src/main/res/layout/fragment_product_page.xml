@@ -52,10 +52,9 @@
                 app:layout_constraintTop_toTopOf="parent" />
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/question_button"
-                style="@style/Widget.App.IconButton.LikeButton"
+                style="@style/Widget.App.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:backgroundTint="@null"
                 app:icon="@drawable/type_question__state_default"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintBottom_toBottomOf="@id/view_pager" />
@@ -239,16 +238,17 @@
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/transaction_button"
-                        style="@style/Widget.App.TextButton"
+                        style="@style/Widget.App.Button.Big"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="52dp"
                         android:layout_marginBottom="8dp"
-                        android:background="@drawable/controls_pl"
                         android:gravity="start|center_vertical"
                         android:paddingHorizontal="8dp"
+                        android:textColor="@color/black"
                         android:textAppearance="@style/TextAppearance.App.Title2"
-                        app:backgroundTint="@null"
+                        app:backgroundTint="@color/light_grey_background"
                         app:icon="@drawable/type_right_arrow__state_default"
+                        app:iconTint="@null"
                         app:iconGravity="end"
                         tools:text="A'PEE" />
 
@@ -299,11 +299,12 @@
                         android:layout_alignParentStart="true"
                         android:text="@string/consist_text"
                         android:textAppearance="@style/TextAppearance.App.Title1" />
-                    <ImageView
+                    <com.google.android.material.button.MaterialButton
+                        style="@style/Widget.App.IconButton"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentEnd="true"
-                        android:src="@drawable/type_copy__state_default"/>
+                        app:icon="@drawable/type_copy__state_default"/>
 
                 </RelativeLayout>
 
@@ -335,13 +336,13 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content">
-                    <Button
+                    <com.google.android.material.button.MaterialButton
                         android:id="@+id/login"
                         style="@style/Widget.App.Button.Big"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="52dp"
                         android:layout_gravity="start"
-                        android:background="@drawable/button_big"
+                        android:backgroundTint="@color/pink"
                         android:gravity="end|center_vertical"
                         android:text="@string/add_to_bag_text"
                         />

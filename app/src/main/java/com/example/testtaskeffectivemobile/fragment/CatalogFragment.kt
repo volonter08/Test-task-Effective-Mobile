@@ -14,6 +14,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.example.testtaskeffectivemobile.R
+import com.example.testtaskeffectivemobile.TypeOfSort
 import com.example.testtaskeffectivemobile.adapter.ProductAdapter
 import com.example.testtaskeffectivemobile.data.model.Product
 import com.example.testtaskeffectivemobile.databinding.FragmentCatalogBinding
@@ -62,9 +63,9 @@ class CatalogFragment : Fragment() {
                     setOnMenuItemClickListener {
                         (view as Button).text = it.title
                         when (it.itemId) {
-                            R.id.sort_by_populate -> productAdapter.sortProductByPopulate()
-                            R.id.sort_by_increasing_price -> productAdapter.sortProductByIncreasingPrice()
-                            R.id.sort_by_reducing_price -> productAdapter.sortProductByReducingPrice()
+                            R.id.sort_by_populate -> productViewModel.typeOfSort.value = TypeOfSort.SORT_BY_POPULATE
+                            R.id.sort_by_increasing_price -> productViewModel.typeOfSort.value = TypeOfSort.SORT_BY_INCREASING_PRICE
+                            R.id.sort_by_reducing_price -> productViewModel.typeOfSort.value = TypeOfSort.SORT_BY_REDUCING_PRICE
                         }
                         return@setOnMenuItemClickListener true
                     }
@@ -109,6 +110,13 @@ class CatalogFragment : Fragment() {
                 } else {
                     it.isChecked = true
                 }
+            }
+        }
+        productViewModel.typeOfSort.observe(viewLifecycleOwner){
+            when(it){
+                TypeOfSort.SORT_BY_POPULATE -> productViewModel.sortProductByPopulate()
+                TypeOfSort.SORT_BY_INCREASING_PRICE -> productViewModel.sortProductByIncreasingPrice()
+                TypeOfSort.SORT_BY_REDUCING_PRICE -> productViewModel.sortProductByReducingPrice()
             }
         }
         return binding.root

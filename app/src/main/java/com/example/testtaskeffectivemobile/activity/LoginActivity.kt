@@ -33,17 +33,22 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private var isValidLoginData: Boolean by Delegates.observable(false) { _, _, newValue ->
         loginButton.isEnabled = newValue
+        if (newValue)
+        println(newValue)
     }
     private var isValidName: Boolean by Delegates.observable(false) { _, oldValue, newValue ->
             binding.nameLinearLayout.setBackgroundResource(if (newValue || binding.name.text.isEmpty()) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
-        isValidLoginData = newValue && isValidName && isValidPhoneNumber
+        isValidLoginData = newValue && isValidSurname && isValidPhoneNumber
     }
     private var isValidSurname: Boolean by Delegates.observable(false) { _, oldValue, newValue ->
-            binding.surnameLinearLayout.setBackgroundResource(if (newValue || binding.name.text.isEmpty()) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
-        isValidLoginData = newValue && isValidPhoneNumber && isValidSurname
+            binding.surnameLinearLayout.setBackgroundResource(if (newValue || binding.surname.text.isEmpty()) R.drawable.controls_pl else R.drawable.controls_pl_outlined)
+
+        isValidLoginData = newValue && isValidPhoneNumber && isValidName
     }
     private var isValidPhoneNumber: Boolean by Delegates.observable(false) { _, _, newValue ->
         isValidLoginData = newValue && isValidName && isValidSurname
+
+
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -90,7 +95,7 @@ class LoginActivity : AppCompatActivity() {
                         return
                     }
                 }
-                isValidName = true
+                isValidName = s?.isNotEmpty() == true
             }
         })
 
@@ -109,8 +114,7 @@ class LoginActivity : AppCompatActivity() {
                         return
                     }
                 }
-                println(s.toString())
-                isValidSurname = true
+                isValidSurname = s?.isNotEmpty() == true
             }
 
         })

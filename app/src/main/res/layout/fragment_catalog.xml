@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingStart="16dp"
+    android:paddingHorizontal="16dp"
     android:paddingTop="16dp"
     tools:context=".fragment.CatalogFragment">
     <TextView
@@ -42,7 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_toEndOf="@id/sort_image_view"
             android:layout_centerVertical="true"
-            android:text="@string/sort_by_increasing"
+            android:text="@string/by_populate"
             app:icon="@drawable/type_down_arrow__state_default"
             app:iconGravity="end" />
 
@@ -78,7 +78,6 @@
         android:id="@+id/product_recycle_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginEnd="16dp"
         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/chip_group_horizontal_scroll_view"

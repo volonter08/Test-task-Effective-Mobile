@@ -55,7 +55,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/name_close_button"
-                style="@style/Widget.App.IconButton.CloseButton.Small"
+                style="@style/Widget.App.IconButton.CloseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -88,7 +88,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/surname_close_button"
-                style="@style/Widget.App.IconButton.CloseButton.Small"
+                style="@style/Widget.App.IconButton.CloseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -121,7 +121,7 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/phone_number_close_button"
-                style="@style/Widget.App.IconButton.CloseButton.Small"
+                style="@style/Widget.App.IconButton.CloseButton"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:background="@android:color/transparent"
@@ -129,16 +129,17 @@
                 />
         </LinearLayout>
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/login"
             style="@style/Widget.App.Button.Big"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_gravity="start"
             android:layout_marginTop="32dp"
             android:enabled="false"
-            android:background="@drawable/button_big"
+            app:backgroundTint="@color/button_big_background_color"
             android:text="@string/login_text"
+            android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

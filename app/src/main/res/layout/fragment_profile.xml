@@ -25,28 +25,19 @@
         android:layout_marginTop="32dp"
         android:orientation="vertical"
         app:layout_constraintTop_toBottomOf="@id/personal_area_text_view">
-
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp">
-
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/personal_area_button"
-                style="@style/Widget.App.TextButton"
+                style="@style/Widget.App.Button.Big.AccountFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/controls_pl"
+                android:layout_height="52dp"
+                android:clickable="false"
                 android:drawableLeft="@drawable/type_account__state_default"
                 android:gravity="start"
-                android:paddingTop="8dp"
-                android:paddingEnd="8dp"
-                android:textAppearance="@style/TextAppearance.App.Title2"
-                app:backgroundTint="@null"
-                app:iconGravity="start"
-                app:iconPadding="16dp"
                 tools:text="Марина Иванова" />
-
             <TextView
                 android:id="@+id/phone_number_text_view"
                 android:layout_width="wrap_content"
@@ -58,11 +49,11 @@
                 android:textColor="@color/grey"
                 tools:text="+ 7 993 877 44 02" />
             <com.google.android.material.button.MaterialButton
-                style="@style/Widget.App.IconButton.LikeButton"
+                style="@style/Widget.App.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:icon="@drawable/icon_logout"
-                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:layout_marginEnd="8dp"
                 />
@@ -75,20 +66,15 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/favorite_button"
-                style="@style/Widget.App.TextButton"
+                style="@style/Widget.App.Button.Big.AccountFragment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="52dp"
                 android:layout_marginBottom="8dp"
-                android:background="@drawable/controls_pl"
                 android:drawableLeft="@drawable/type_heart__state_default"
                 android:drawableRight="@drawable/type_right_arrow__state_default"
                 android:gravity="start"
-                android:paddingEnd="8dp"
-                android:paddingTop="8dp"
                 android:text="@string/favorite_text"
-                android:textAppearance="@style/TextAppearance.App.Title2"
-                app:backgroundTint="@null"
-                app:iconPadding="16dp" />
+                android:textAppearance="@style/TextAppearance.App.Title2" />
 
             <TextView
                 android:id="@+id/count_favorite_text_view"
@@ -105,80 +91,57 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/shops_button"
-            style="@style/Widget.App.TextButton"
+            style="@style/Widget.App.Button.Big.AccountFragment"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/controls_pl"
             android:drawableLeft="@drawable/type_shop__state_default"
             android:drawableRight="@drawable/type_right_arrow__state_default"
-            android:gravity="start|center_vertical"
-            android:paddingEnd="8dp"
-
-            android:text="@string/shops_text"
-            android:textAppearance="@style/TextAppearance.App.Title2"
-            app:backgroundTint="@null"
-            app:iconPadding="16dp" />
+            android:text="@string/shops_text" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/feedback_button"
-            style="@style/Widget.App.TextButton"
+            style="@style/Widget.App.Button.Big.AccountFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/controls_pl"
             android:drawableLeft="@drawable/type_feedback__state_default"
             android:drawableRight="@drawable/type_right_arrow__state_default"
             android:gravity="start|center_vertical"
-            android:paddingEnd="8dp"
-            android:text="@string/feedback_text"
-            android:textAppearance="@style/TextAppearance.App.Title2"
-            app:backgroundTint="@null"
-            app:iconPadding="16dp" />
+            android:text="@string/feedback_text" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/offer_button"
-            style="@style/Widget.App.TextButton"
+            style="@style/Widget.App.Button.Big.AccountFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/controls_pl"
             android:drawableLeft="@drawable/type_offer__state_default"
             android:drawableRight="@drawable/type_right_arrow__state_default"
-            android:gravity="start|center_vertical"
-            android:paddingEnd="8dp"
-            android:text="@string/offer_text"
-            android:textAppearance="@style/TextAppearance.App.Title2"
-            app:backgroundTint="@null"
-            app:iconPadding="16dp" />
+            android:text="@string/offer_text" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/return_product_button"
-            style="@style/Widget.App.TextButton"
+            style="@style/Widget.App.Button.Big.AccountFragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="52dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/controls_pl"
             android:drawableLeft="@drawable/type_refund__state_default"
             android:drawableRight="@drawable/type_right_arrow__state_default"
-            android:gravity="start|center_vertical"
-            android:paddingEnd="8dp"
-            android:text="@string/return_product_text"
-            android:textAppearance="@style/TextAppearance.App.Title2"
-            app:backgroundTint="@null"
-            app:iconPadding="16dp" />
+            android:text="@string/return_product_text" />
     </LinearLayout>
 
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/logout"
         style="@style/Widget.App.Button.Big"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="start"
         android:layout_marginTop="32dp"
-        android:background="@drawable/controls_pl"
+        android:backgroundTint="@color/light_grey_background"
         android:text="@string/logout_text"
         android:textColor="@color/black"
+        app:rippleColor="@color/grey"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

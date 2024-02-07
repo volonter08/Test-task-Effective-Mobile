@@ -12,7 +12,6 @@ import javax.inject.Singleton
  */
 @Singleton
 class LoginRepository @Inject constructor(val profileDao: ProfileDao) {
-
     var profileFlow = profileDao.getProfileLiveData().map{
         if (it.isNotEmpty()) {
             it.first()
