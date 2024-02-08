@@ -33,8 +33,6 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var loginButton: Button
     private var isValidLoginData: Boolean by Delegates.observable(false) { _, _, newValue ->
         loginButton.isEnabled = newValue
-        if (newValue)
-        println(newValue)
     }
     private var isValidName: Boolean by Delegates.observable(false) { _, oldValue, newValue ->
             binding.nameLinearLayout.setBackgroundResource(if (newValue || binding.name.text.isEmpty()) R.drawable.controls_pl else R.drawable.controls_pl_outlined)

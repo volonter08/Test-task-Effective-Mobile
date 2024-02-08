@@ -157,8 +157,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
         app:icon="@drawable/type_plus__state_default"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         />
     </LinearLayout>
 </com.google.android.material.card.MaterialCardView>
